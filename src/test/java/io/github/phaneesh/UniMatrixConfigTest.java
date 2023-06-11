@@ -32,7 +32,7 @@ public class UniMatrixConfigTest {
   void testDefaultConstructor() {
     UniMatrixConfig factory = new UniMatrixConfig();
     assertNull(factory.getDriverClass());
-    assertEquals(SQLDialect.MARIADB, factory.getDialect());
+    assertEquals(SQLDialect.MYSQL, factory.getDialect());
     assertNull(factory.getUser());
     assertEquals(0, factory.getMinPoolSize());
     assertEquals(4, factory.getMaxPoolSize());
