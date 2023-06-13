@@ -16,10 +16,13 @@ public class UniMatrix {
 
   private HikariDataSource dataSource;
 
+  private final Object metricsRegisrtry;
+
   private final UniMatrixConfig config;
   @Builder
-  public UniMatrix(UniMatrixConfig uniMatrixConfig) {
+  public UniMatrix(UniMatrixConfig uniMatrixConfig, final Object metricsRegisrtry) {
     this.config = uniMatrixConfig;
+    this.metricsRegisrtry = metricsRegisrtry;
     init();
   }
 
@@ -51,6 +54,9 @@ public class UniMatrix {
     hikariConfig.setIdleTimeout(this.config.getIdleTimeout());
     hikariConfig.setPoolName(this.config.getName());
     hikariConfig.setMaxLifetime(this.config.getMaxAge());
+    if(Objects.nonNull(metricsRegisrtry)) {
+      hikariConfig.setMetricRegistry(metricsRegisrtry);
+    }
     dataSource = new HikariDataSource(hikariConfig);
     dslContext = DSL.using(dataSource, this.config.getDialect());
     return dslContext;
