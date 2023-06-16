@@ -42,8 +42,7 @@ public class UniMatrix {
     }
     HikariConfig hikariConfig = new HikariConfig();
     hikariConfig.setAutoCommit(false);
-    hikariConfig.setConnectionTimeout(30000);
-    hikariConfig.setConnectionTestQuery("SELECT 1");
+    hikariConfig.setConnectionTimeout(this.config.getConnectionTimout());
     hikariConfig.setRegisterMbeans(true);
     hikariConfig.setJdbcUrl(this.config.getUrl());
     hikariConfig.setUsername(this.config.getUser());

@@ -37,7 +37,7 @@ public class UniMatrixConfig {
   private int idleTimeout = 35000;
 
   @Builder.Default
-  private String testQuery = "SELECT 1;";
+  private int connectionTimout = 35000;
 
   @Builder.Default
   private int maxAge = 45000;
