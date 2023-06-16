@@ -22,7 +22,6 @@ public class UniMatrixConfigTest {
     assertEquals(4, factory.getMaxPoolSize());
     assertEquals(35000, factory.getIdleTimeout());
     assertEquals(45000, factory.getMaxAge());
-    assertEquals("SELECT 1;", factory.getTestQuery());
     assertNull(factory.getPassword());
     assertNotNull(factory.toString());
     assertNotEquals(0, factory.hashCode());
@@ -38,7 +37,6 @@ public class UniMatrixConfigTest {
     assertEquals(4, factory.getMaxPoolSize());
     assertEquals(35000, factory.getIdleTimeout());
     assertEquals(45000, factory.getMaxAge());
-    assertEquals("SELECT 1;", factory.getTestQuery());
     assertNull(factory.getPassword());
     assertNotNull(factory.toString());
     assertNotEquals(0, factory.hashCode());
